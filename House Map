@@ -1,0 +1,28 @@
+Upper Floor Rooms:
+-Guestroom
+-Music Room
+-a Cow
+-Balcony
+*Hallway
+*Closet
+
+Ground Floor Rooms:
+-Entryway ~Player Starts Here~
+-Kitchen
+-Den
+-Dining Room
+*Hallway
+*Library
+
+Basement Rooms:
+-Study
+-Cellar
+-Altar Room ~Ghost Starts Here~
+*Hallway
+*Closet
+*Library
+
+**Some rooms connect to multiple floors**
+      The closet connects the upper floors and the basement
+      The library connects the ground floor and the basement
+      The hallway connects all of the floors
