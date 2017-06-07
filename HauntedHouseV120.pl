@@ -97,7 +97,19 @@ sub moveghost {
 }
 
 sub ghostonfloor {
-	if ( index (checkfloor($ghost), checkfloor($location)) != -1 ) {
+	if ( $ghost eq "hallway" ) {
+		return 1;
+	}
+	elsif ( $location eq "hallway" ) {
+		return 1;
+	}
+	elsif ( $location eq "closet" && $ghost eq "library" ) {
+		return 1;
+	}
+	elsif ( $location eq "library" && $ghost eq "closet" ) {
+		return 1;
+	}
+	elsif ( index (checkfloor($ghost), checkfloor($location)) != -1 ) {
 		return 1;
 	}
 	elsif (index (checkfloor($location), checkfloor($ghost)) != -1 ) {
