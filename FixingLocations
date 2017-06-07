@@ -72,4 +72,13 @@ if ( index ( checkfloor("den"), checkfloor($location) ) != -1 ) {say "Test 8";}
 if ( index ( checkfloor($location), checkfloor("cow") ) == -1 ) {say "Test 9";}
 if ( index ( checkfloor("cow"), checkfloor($location) ) == -1 ) {say "Test 10";}
 
-if ( index ( checkfloor("hallway"
+#Testing the closet issue
+if ( index ( checkfloor("closet"), checkfloor("study") ) != -1 ) {say "Test 11";}
+if ( index ( checkfloor("study"), checkfloor("closet") ) != -1 ) {say "Test 11";}
+if ( index ( checkfloor("closet"), checkfloor("altar") ) != -1 ) {say "Test 12";}
+if ( index ( checkfloor("altar"), checkfloor("closet") ) != -1 ) {say "Test 12";}
+if ( index ( checkfloor("closet"), checkfloor("hallway") ) != -1) {say "Test 13";}
+if ( index ( checkfloor("hallway"), checkfloor("closet") ) != -1) {say "Test 13";}
+if ( index ( checkfloor("closet"), checkfloor("library") ) != -1) {say "Test 14";}
+if ( index ( checkfloor("library"), checkfloor("closet") ) != -1) {say "Test 14";}
+
