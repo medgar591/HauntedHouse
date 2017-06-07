@@ -7,6 +7,14 @@ my @upperfloor =("guestroom", "musicroom", "cow", "balcony", "hallway", "closet"
 my @firstfloor =("entryway", "kitchen", "den", "library", "diningroom", "hallway",);
 my @lowerfloor =("study", "hallway", "cellar", "altar", "closet", "library",);
 
+my %mansion = ( "2" => \@upperfloor,
+		"1" => \@firstfloor,
+		"0" => \@lowerfloor,
+		"20" => "closet",
+		"10" => "library",
+		"210" => "hallway",
+	      );
+
 my $location = "entryway";
 my $ghost = "altar";
 my $rando = undef; #for use in random numbers, just to make sure testing works
