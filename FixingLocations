@@ -1,0 +1,45 @@
+use strict;
+use warnings;
+use 5.010;
+
+##Defining Variables##
+my @upperfloor =("guestroom", "musicroom", "cow", "balcony", "hallway", "closet",);
+my @firstfloor =("entryway", "kitchen", "den", "library", "diningroom", "hallway",);
+my @lowerfloor =("study", "hallway", "cellar", "altar", "closet", "library",);
+
+my $location = "entryway";
+my $ghost = "altar";
+my $rando = undef; #for use in random numbers, just to make sure testing works
+
+#Required Subroutine
+sub checkfloor {
+	my $spot = $_[0];
+	my $floor;
+	if ( $spot eq "closet" ) {return "20";}
+	elsif ( $spot eq "library" ) {return "10";}
+	elsif ( $spot eq "hallway" ) {return "210";}
+	else {
+		for (my $n = 0; $n < 3; $n++) {
+			foreach ( @{ $mansion{$n}} ) {
+				if ($spot eq $_ ) {
+					$floor = $n;
+					last;
+				}
+			}
+		}
+		return $floor;
+	}
+}
+
+
+#Testing the checkfloor() subroutine
+say "guestroom ", checkfloor("guestroom");
+say "entryway ", checkfloor("entryway");
+say "study ", checkfloor("study");
+say "closet ", checkfloor("closet");
+say "hallway ", checkfloor("hallway");
+
+for (my $n = 0; $n < 20; $n++ ){
+  $rando = int(rand(3));
+  say $rando, " ", $mansion{$rando}->[int(rand(6))];
+}
