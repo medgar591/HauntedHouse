@@ -46,8 +46,9 @@ say "entryway ", checkfloor("entryway");
 say "study ", checkfloor("study");
 say "closet ", checkfloor("closet");
 say "hallway ", checkfloor("hallway");
+say "library ", checkfloor("library");
 
 for (my $n = 0; $n < 20; $n++ ){
   $rando = int(rand(3));
-  say $rando, " ", $mansion{$rando}->[int(rand(6))];
+  say $rando, " ", checkfloor($mansion{$rando}->[int(rand(6))]);
 }
