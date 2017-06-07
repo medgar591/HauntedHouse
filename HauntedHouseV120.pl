@@ -22,7 +22,7 @@ my @upperfloor =("guestroom", "musicroom", "cow", "balcony", "hallway", "closet"
 my @firstfloor =("entryway", "kitchen", "den", "library", "diningroom", "hallway",);
 my @lowerfloor =("study", "hallway", "cellar", "altar", "closet", "library",);
 
-#XXXXXrooms variables unused
+#$rooms variables are unused
 my $upperrooms = @upperfloor;
 my $firstrooms = @firstfloor;
 my $lowerrooms = @lowerfloor;
@@ -36,6 +36,7 @@ my %mansion = ( "2" => \@upperfloor,
 		"210" => "hallway",
 	      );
 
+#used for descriptions in situation()
 my %givingout = ( "2"   => "cielings",
 		  "1"   => "floor tiles",
 		  "0"   => "walls",
@@ -44,15 +45,15 @@ my %givingout = ( "2"   => "cielings",
 		  "210" => "paintings along the wall",
 		);
 
-my $jewel = $mansion{"2"}->[int(rand(4))];
+my $jewel = $mansion{"2"}->[int(rand(4))]; #Jewel is in a random room that isn't the closet or hallway
 
 
 ##Usefull Subroutines##
-sub location {
+sub location { #Takes nothing, gives player room
 	return $location;
 	}
 
-sub checkfloor {
+sub checkfloor { #Takes room, gives floor
 	my $spot = $_[0];
 	my $floor;
 	if ( $spot eq "closet" ) {return "20";}
@@ -71,7 +72,7 @@ sub checkfloor {
 	}
 }
 
-sub nextroom {
+sub nextroom { #Takes floor, gives valid next room
 	my $floor = $_[0];
 	if ($floor eq "20") {
 		my $num = int(rand(2));
@@ -92,11 +93,11 @@ sub nextroom {
 	return $mansion{$floor}->[int(rand(6))];
 }
 
-sub moveghost {
+sub moveghost { #Takes nothing, Changes Ghost's room
 	$ghost = nextroom(checkfloor($ghost));
 }
 
-sub ghostonfloor {
+sub ghostonfloor { #Takes nothing, Gives 1 if true, 0 if false
 	if ( index (checkfloor($ghost), checkfloor($location)) != -1 ) {
 		return 1;
 	}
@@ -109,7 +110,7 @@ sub ghostonfloor {
 }
 
 #Main loop subroutines
-sub input {
+sub input { #Takes nothing, Gives player choice as a number
 	say "Ahead of you, you can see a closed door.";
 	say "What would you like to do?";
 	say "\t1)Move Forward";
@@ -125,13 +126,13 @@ sub input {
 	return $action;
 }
 
-sub situation {
+sub situation { #Takes nothing, Says the player's situation
 	say "You are standing in the ", $location;	
 	say "It is old and abandoned. The ", $givingout{checkfloor($location)}, " seem to be so old that they are falling apart.";
 	say "Through the ancient walls you can hear ", (ghostonfloor == 1 ? "howling" : "moaning");
 }
 
-sub results {
+sub results { #Takes in a number (From input), processes and says what happens based on that
 	my $result = $_[0];	
 	if ($peeked == 0 ) {$ahead = nextroom(checkfloor($location));}
 	moveghost();
@@ -202,7 +203,7 @@ while ($alvation == 1) {
 say "~~~~~~~~~~~~~";
 say "~ GAME OVER ~";
 say "~~~~~~~~~~~~~";
-if ( $action == 3 ) { say "quitter"; }
+if ( $action == 3 ) { say "quitter"; } #For people who tried to run away
 
 
 ##debugging info##
