@@ -52,3 +52,24 @@ for (my $n = 0; $n < 20; $n++ ){
   $rando = int(rand(3));
   say $rando, " ", checkfloor($mansion{$rando}->[int(rand(6))]);
 }
+
+#testing indexing
+if ( index ( checkfloor($location), checkfloor($ghost) ) == -1 ) {say "Test 1";}
+if ( index ( checkfloor($ghost), checkfloor($location) ) == -1 ) {say "Test 2";}
+
+if ( index ( checkfloor($location), checkfloor("hallway") ) != -1 ) {say "Test 3";}
+if ( index ( checkfloor("hallway"), checkfloor($location) ) != -1 ) {say "Test 3";}
+
+if ( index ( checkfloor($location), checkfloor("library") ) != -1 ) {say "Test 4";}
+if ( index ( checkfloor("library"), checkfloor($location) ) != -1 ) {say "Test 4";}
+
+if ( index ( checkfloor($location), checkfloor("closet") ) == -1 ) {say "Test 5";}
+if ( index ( checkfloor("closet"), checkfloor($location) ) == -1 ) {say "Test 6";}
+
+if ( index ( checkfloor($location), checkfloor("den") ) != -1 ) {say "Test 7";}
+if ( index ( checkfloor("den"), checkfloor($location) ) != -1 ) {say "Test 8";}
+
+if ( index ( checkfloor($location), checkfloor("cow") ) == -1 ) {say "Test 9";}
+if ( index ( checkfloor("cow"), checkfloor($location) ) == -1 ) {say "Test 10";}
+
+if ( index ( checkfloor("hallway"
