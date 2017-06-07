@@ -170,6 +170,7 @@ sub results {
 	elsif ( $result == 6 ) {
 		if ( $jewel eq "0" && $location eq "entryway" ) {
 			say "You escape the mansion to see the first rays of dawn. Congratulations.";
+			$alvation = 0;
 		}
 		else {
 			say "You are too terrified to do that.";
