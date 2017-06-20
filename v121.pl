@@ -349,7 +349,7 @@ If you are brave enough you can enter the <%=link_to Mansion => 'game' %>.
 % }
 % if ($move eq '2') {
 	You panic and curl up into a ball under a pile of trash in the corner of the room.
-%	if ($hidin eq '1') {
+%	if ($hiding eq '1') {
 		To your horror, you see the ghost tear through the room searching for you, but it quickly goes to another room in the mansion when it can't find you.
 		<hr>
 %	}
